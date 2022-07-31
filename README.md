@@ -6,7 +6,7 @@ In this project, I tired to make the computer draw the hirst paintiong automatic
 It will draw the panit using the turtle library from the python library.
 and then you have it.
 
-![plot](./Capture.jpg)
+![plot](./Capture.png)
 
 
 So, have fun.
