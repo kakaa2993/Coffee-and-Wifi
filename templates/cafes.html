@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block head %}
+
+    {{ super() }}
+<!--    {% block title %}All Cafe{% endblock %}-->
+    <style>
+        body {
+            font-size: 16px;
+            text-align: left;
+            color: #B2B2B2;
+
+        }
+        main {
+            padding:2% 4rem 13rem;
+        }
+        h1 {
+            font-size: 3rem;
+            color: white;
+        }
+        hr {
+            margin: 0;
+        }
+        .table {
+            color: white;
+        }
+        p {
+            margin: 0;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <main>
+        <h1>{% block head_title %}All Cafe{% endblock %}</h1>
+        <hr>
+        <div class="table-responsive pb-3">
+            <table class="table table-borderless border-secondary table-lg">
+                <tbody>
+                {% for row in rows %}
+                    <tr>
+                        {% for data in row %}
+                            {% if "http" in data %}
+                                <td class="border-top border-1 border-color-secondary"><a class="link-warning text-decoration-none" href="{{ data }}">Maps Link</a></td>
+                            {% else %}
+                                <td class="border-top border-1"><p>{{data}}</p></td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="{{ url_for('home') }}" class="link-warning text-decoration-none">Return to index page</a>
+    </main>
+{% endblock %}
