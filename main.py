@@ -1,11 +1,17 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField, SelectField
+from wtforms.validators import DataRequired, Length
 import csv
 
 app = Flask(__name__)
 app.secret_key = "Kakaa2993@t"
 Bootstrap(app=app)
 
+
+class Form(FlaskForm):
+    cafe_name = StringField(label="Cafe Name", validators=[Da])
 
 @app.route("/")
 def home():
