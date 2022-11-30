@@ -22,5 +22,10 @@ def cafes():
         return render_template("cafes.html", rows=csv_data)
 
 
+@app.route("/add")
+def add():
+    return render_template("add.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True, host="localhost", port=5000)
