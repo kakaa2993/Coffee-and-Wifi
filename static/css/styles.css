@@ -26,5 +26,6 @@ main .btn:hover {
 }
 
 footer {
+    height: 11rem;
     background: #000000;
 }
