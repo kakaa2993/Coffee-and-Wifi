@@ -24,6 +24,9 @@
         a {
             padding-top: 3rem;
         }
+        main .btn {
+            color: #000000;
+        }
 
     </style>
 {% endblock %}
@@ -32,7 +35,8 @@
     <main>
         <h1>Add a new cafe into the database </h1>
         {{ form.csf_token }}
-        {{ wtf.quick_form(form) }}
+        {{ wtf.quick_form(form, button_map={"submit":"light"}) }}
+        {{ wtf.form_errors(form)}}
         <a type="button" href="{{ url_for('home') }}" class="link-warning text-decoration-none">See all cafes </a>
     </main>
 {% endblock %}

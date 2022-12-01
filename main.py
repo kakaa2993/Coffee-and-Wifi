@@ -11,13 +11,13 @@ Bootstrap(app=app)
 
 
 class Form(FlaskForm):
-    cafe_name = StringField(label="Cafe Name", )
-    location = StringField(label="Cafe Location on Google Maps(URL)",)
-    open = StringField(label="Opening Time e.g. 8AM ", )
-    close = StringField(label="Closing Time e.g. 5:30PM ", )
-    coffee = SelectField(label="Coffee Rating", choices=[(1,"☕"),(2,"☕☕"),(3,"☕☕☕"), (4,"☕☕☕☕"),(5,"☕☕☕☕☕")], )
-    wifi = SelectField(label="Wifi Strength Rating ", choices=[(False, "✘"), (1,"💪"), (2, "💪💪"), (3, "💪💪💪"), (4, "💪💪💪💪"), (5, "💪💪💪💪💪")], )
-    power = SelectField(label="Power Socket Availability", choices=[(False, "✘"), (1, "🔌"), (2, "🔌🔌"), (3, "🔌🔌🔌"), (4, "🔌🔌🔌🔌"), (5, "🔌🔌🔌🔌🔌")], )
+    cafe_name = StringField(label="Cafe Name", validators=[DataRequired()] )
+    location = StringField(label="Cafe Location on Google Maps(URL)", validators=[DataRequired(), URL()])
+    open = StringField(label="Opening Time e.g. 8AM ", validators=[DataRequired()])
+    close = StringField(label="Closing Time e.g. 5:30PM ", validators=[DataRequired()])
+    coffee = SelectField(label="Coffee Rating", choices=[(1,"☕"),(2,"☕☕"),(3,"☕☕☕"), (4,"☕☕☕☕"),(5,"☕☕☕☕☕")], validators=[DataRequired()])
+    wifi = SelectField(label="Wifi Strength Rating ", choices=[(False, "✘"), (1,"💪"), (2, "💪💪"), (3, "💪💪💪"), (4, "💪💪💪💪"), (5, "💪💪💪💪💪")], validators=[DataRequired()])
+    power = SelectField(label="Power Socket Availability", choices=[(False, "✘"), (1, "🔌"), (2, "🔌🔌"), (3, "🔌🔌🔌"), (4, "🔌🔌🔌🔌"), (5, "🔌🔌🔌🔌🔌")], validators=[DataRequired()])
     submit = SubmitField(label="Submit")
 
 
@@ -39,6 +39,7 @@ def cafes():
 @app.route("/add")
 def add():
     order_form = Form()
+    order_form.validate_on_submit()
     return render_template("add.html", form=order_form)
 
 
