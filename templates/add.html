@@ -1,9 +1,38 @@
 {% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 {% block head %}
     {{ super() }}
+    <style>
+        body {
+            font-size: 16px;
+            text-align: left;
+            color: #ffffff;
+        }
+        main {
+            padding:2% 28rem 1rem 4rem;
+        }
+        h1 {
+            font-size: 3rem;
+            padding-bottom: 1rem;
+        }
+        div {
+            margin-bottom:1rem;
+        }
+        label {
+            padding-bottom: 0.5rem;
+        }
+        a {
+            padding-top: 3rem;
+        }
+
+    </style>
 {% endblock %}
+
 {% block content %}
-
-
-
+    <main>
+        <h1>Add a new cafe into the database </h1>
+        {{ form.csf_token }}
+        {{ wtf.quick_form(form) }}
+        <a type="button" href="{{ url_for('home') }}" class="link-warning text-decoration-none">See all cafes </a>
+    </main>
 {% endblock %}

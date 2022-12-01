@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired, Length, URL
 import csv
 
 app = Flask(__name__)
@@ -11,7 +11,15 @@ Bootstrap(app=app)
 
 
 class Form(FlaskForm):
-    cafe_name = StringField(label="Cafe Name", validators=[Da])
+    cafe_name = StringField(label="Cafe Name", )
+    location = StringField(label="Cafe Location on Google Maps(URL)",)
+    open = StringField(label="Opening Time e.g. 8AM ", )
+    close = StringField(label="Closing Time e.g. 5:30PM ", )
+    coffee = SelectField(label="Coffee Rating", choices=[(1,"☕"),(2,"☕☕"),(3,"☕☕☕"), (4,"☕☕☕☕"),(5,"☕☕☕☕☕")], )
+    wifi = SelectField(label="Wifi Strength Rating ", choices=[(False, "✘"), (1,"💪"), (2, "💪💪"), (3, "💪💪💪"), (4, "💪💪💪💪"), (5, "💪💪💪💪💪")], )
+    power = SelectField(label="Power Socket Availability", choices=[(False, "✘"), (1, "🔌"), (2, "🔌🔌"), (3, "🔌🔌🔌"), (4, "🔌🔌🔌🔌"), (5, "🔌🔌🔌🔌🔌")], )
+    submit = SubmitField(label="Submit")
+
 
 @app.route("/")
 def home():
@@ -30,7 +38,8 @@ def cafes():
 
 @app.route("/add")
 def add():
-    return render_template("add.html")
+    order_form = Form()
+    return render_template("add.html", form=order_form)
 
 
 if __name__ == "__main__":
