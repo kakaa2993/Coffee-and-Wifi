@@ -8,6 +8,10 @@ import csv
 app = Flask(__name__)
 app.secret_key = "Kakaa2993@t"
 Bootstrap(app=app)
+# write a new line
+with open("cafe-data.csv", "a", encoding="utf-8",newline='') as csv_data:
+    csv_data.write("\n")
+
 
 
 class Form(FlaskForm):
@@ -28,6 +32,8 @@ class Form(FlaskForm):
     submit = SubmitField(label="Submit")
 
 
+
+
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -36,7 +42,7 @@ def home():
 @app.route("/cafes")
 def cafes():
     list_ = []
-    with open(file="cafe-data.csv", encoding="utf-8") as file:
+    with open(file="cafe-data.csv", encoding="utf-8",newline='') as file:
         csv_data = csv.reader(file)
         for row in csv_data:
             list_.append(row)
@@ -44,7 +50,7 @@ def cafes():
 
 
 def add_data_to_database(detail):
-    with open("cafe-data.csv", "a", encoding="utf-8",) as csv_data:
+    with open("cafe-data.csv", "a", encoding="utf-8",newline='') as csv_data:
         writer = csv.writer(csv_data)
         writer.writerow(detail)
 
