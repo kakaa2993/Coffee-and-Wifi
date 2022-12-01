@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
@@ -19,12 +19,12 @@ class Form(FlaskForm):
     close = StringField(label="Closing Time e.g. 5:30PM ",
                         validators=[DataRequired()])
     coffee = SelectField(label="Coffee Rating",
-                         choices=[(1, "☕"), (2, "☕☕"), (3, "☕☕☕"), (4, "☕☕☕☕"), (5, "☕☕☕☕☕")],
+                         choices=[("☕"), ("☕☕"), ( "☕☕☕"), ( "☕☕☕☕"), ("☕☕☕☕☕")],
                          validators=[])
     wifi = SelectField(label="Wifi Strength Rating ",
-                       choices=[(0, "✘"), (1, "💪"), (2, "💪💪"), (3, "💪💪💪"), (4, "💪💪💪💪"), (5, "💪💪💪💪💪")])
+                       choices=[("✘"), ("💪"), ("💪💪"), ("💪💪💪"), ("💪💪💪💪"), ("💪💪💪💪💪")])
     power = SelectField(label="Power Socket Availability",
-                        choices=[(0, "✘"), (1, "🔌"), (2, "🔌🔌"), (3, "🔌🔌🔌"), (4, "🔌🔌🔌🔌"), (5, "🔌🔌🔌🔌🔌")])
+                        choices=[("✘"), ("🔌"), ("🔌🔌"), ("🔌🔌🔌"), ("🔌🔌🔌🔌"), ("🔌🔌🔌🔌🔌")])
     submit = SubmitField(label="Submit")
 
 
@@ -44,8 +44,8 @@ def cafes():
 
 
 def add_data_to_database(detail):
-    with open("cafe-data.csv", "a") as csv_data:
-        writer = csv.writer(csvfile=csv_data)
+    with open("cafe-data.csv", "a", encoding="utf-8",) as csv_data:
+        writer = csv.writer(csv_data)
         writer.writerow(detail)
 
 
@@ -56,7 +56,7 @@ def add():
         print("success")
         data = [order_form.cafe_name.data, order_form.location.data,order_form.open.data, order_form.close.data, order_form.coffee.data, order_form.wifi.data, order_form.power.data]
         add_data_to_database(data)
-        return render_template("cafe.html")
+        return redirect(url_for('cafes'))
     return render_template("add.html", form=order_form)
 
 
