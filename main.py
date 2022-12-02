@@ -8,10 +8,10 @@ import csv
 app = Flask(__name__)
 app.secret_key = "Kakaa2993@t"
 Bootstrap(app=app)
-# write a new line
-with open("cafe-data.csv", "a", encoding="utf-8",newline='') as csv_data:
-    csv_data.write("\n")
 
+# write a new line
+with open("cafe-data.csv", "a", encoding="utf-8", newline='') as csv_data:
+    csv_data.write("\n")
 
 
 class Form(FlaskForm):
@@ -22,16 +22,14 @@ class Form(FlaskForm):
                        validators=[DataRequired()])
     close = StringField(label="Closing Time e.g. 5:30PM ",
                         validators=[DataRequired()])
-    coffee = SelectField(label="Coffee Rating",
-                         choices=[("☕"), ("☕☕"), ( "☕☕☕"), ( "☕☕☕☕"), ("☕☕☕☕☕")],
-                         validators=[])
-    wifi = SelectField(label="Wifi Strength Rating ",
-                       choices=[("✘"), ("💪"), ("💪💪"), ("💪💪💪"), ("💪💪💪💪"), ("💪💪💪💪💪")])
-    power = SelectField(label="Power Socket Availability",
-                        choices=[("✘"), ("🔌"), ("🔌🔌"), ("🔌🔌🔌"), ("🔌🔌🔌🔌"), ("🔌🔌🔌🔌🔌")])
+    coffee_rating = SelectField(label="Coffee Rating",
+                                choices=["☕", "☕☕",  "☕☕☕",  "☕☕☕☕", "☕☕☕☕☕"],
+                                validators=[])
+    wifi_rating = SelectField(label="Wifi Strength Rating ",
+                              choices=["✘", "💪", "💪💪", "💪💪💪", "💪💪💪💪", "💪💪💪💪💪"])
+    power_sockets = SelectField(label="Power Socket Availability",
+                                choices=["✘", "🔌", "🔌🔌", "🔌🔌🔌", "🔌🔌🔌🔌", "🔌🔌🔌🔌🔌"])
     submit = SubmitField(label="Submit")
-
-
 
 
 @app.route("/")
@@ -42,16 +40,16 @@ def home():
 @app.route("/cafes")
 def cafes():
     list_ = []
-    with open(file="cafe-data.csv", encoding="utf-8",newline='') as file:
-        csv_data = csv.reader(file)
-        for row in csv_data:
+    with open(file="cafe-data.csv", encoding="utf-8", newline='') as file:
+        csv_file = csv.reader(file)
+        for row in csv_file:
             list_.append(row)
     return render_template("cafes.html", rows=list_)
 
 
 def add_data_to_database(detail):
-    with open("cafe-data.csv", "a", encoding="utf-8",newline='') as csv_data:
-        writer = csv.writer(csv_data)
+    with open("cafe-data.csv", "a", encoding="utf-8",newline='') as csv_file:
+        writer = csv.writer(csv_file)
         writer.writerow(detail)
 
 
@@ -59,8 +57,7 @@ def add_data_to_database(detail):
 def add():
     order_form = Form()
     if order_form.validate_on_submit():
-        print("success")
-        data = [order_form.cafe_name.data, order_form.location.data,order_form.open.data, order_form.close.data, order_form.coffee.data, order_form.wifi.data, order_form.power.data]
+        data = [order_form.cafe_name.data, order_form.location.data, order_form.open.data, order_form.close.data, order_form.coffee_rating.data, order_form.wifi_rating.data, order_form.power_sockets.data]
         add_data_to_database(data)
         return redirect(url_for('cafes'))
     return render_template("add.html", form=order_form)
