@@ -9,10 +9,6 @@ app = Flask(__name__)
 app.secret_key = "Kakaa2993@t"
 Bootstrap(app=app)
 
-# write a new line
-with open("cafe-data.csv", "a", encoding="utf-8", newline='') as csv_data:
-    csv_data.write("\n")
-
 
 class Form(FlaskForm):
     cafe_name = StringField(label="Cafe Name", validators=[DataRequired()])
@@ -39,25 +35,24 @@ def home():
 
 @app.route("/cafes")
 def cafes():
-    list_ = []
+    list_rows = []
     with open(file="cafe-data.csv", encoding="utf-8", newline='') as file:
         csv_file = csv.reader(file)
         for row in csv_file:
-            list_.append(row)
-    return render_template("cafes.html", rows=list_)
+            list_rows.append(row)
+    return render_template("cafes.html", rows=list_rows)
 
 
 def add_data_to_database(detail):
-    with open("cafe-data.csv", "a", encoding="utf-8",newline='') as csv_file:
-        writer = csv.writer(csv_file)
-        writer.writerow(detail)
+    with open("cafe-data.csv", "a", encoding="utf-8", newline='') as csv_file:
+        csv_file.write(",".join(detail))
 
 
 @app.route("/add", methods=['POST', 'GET'])
 def add():
     order_form = Form()
     if order_form.validate_on_submit():
-        data = [order_form.cafe_name.data, order_form.location.data, order_form.open.data, order_form.close.data, order_form.coffee_rating.data, order_form.wifi_rating.data, order_form.power_sockets.data]
+        data = [f"\n{order_form.cafe_name.data}", order_form.location.data, order_form.open.data, order_form.close.data, order_form.coffee_rating.data, order_form.wifi_rating.data, order_form.power_sockets.data]
         add_data_to_database(data)
         return redirect(url_for('cafes'))
     return render_template("add.html", form=order_form)
