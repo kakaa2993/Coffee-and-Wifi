@@ -24,8 +24,3 @@ main .btn {
 main .btn:hover {
     color: #ffffff;
 }
-
-footer {
-    height: 11rem;
-    background: #000000;
-}
