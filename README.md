@@ -1,2 +1,2 @@
 # Coffee and Wifi
-A website buil with Flask and HTML5 & CSS5.
+A website build with Flask and HTML5 & CSS5.
