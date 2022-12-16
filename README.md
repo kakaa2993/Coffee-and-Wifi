@@ -6,3 +6,7 @@ https://user-images.githubusercontent.com/43291919/207790830-ec4999a5-bf20-46c7-
 This website is collection of cafes ☕ with data on power socket 🔌 available, wifi 📶 speed and coffee quality, and you can also add more cafe stors to the database.
 
 
+
+
+https://user-images.githubusercontent.com/43291919/208074983-476e1437-0c6e-4647-82ab-27c3a7085ba1.mp4
+
