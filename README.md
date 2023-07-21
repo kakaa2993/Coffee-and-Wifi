@@ -2,6 +2,13 @@
 
 https://user-images.githubusercontent.com/43291919/208074983-476e1437-0c6e-4647-82ab-27c3a7085ba1.mp4
 
+![Languages](https://img.shields.io/github/languages/count/kakaa2993/Coffee-and-Wifi?color=%234d41c0)
+![Top Language](https://img.shields.io/github/languages/top/kakaa2993/Coffee-and-Wifi?color=%234d41c0)
+![Repository Size](https://img.shields.io/github/repo-size/kakaa2993/Coffee-and-Wifi?color=%234d41c0)
+![Made By](https://img.shields.io/badge/made%20by-kakaa-%234d41c0)
+
+
+
 ## About The Website:
 This website is a collection of cafes ☕ with data on power sockets 🔌  available, wifi 📶 speed, and coffee quality, and you can also add more cafe stores to the database.
 
@@ -12,3 +19,6 @@ This website is a collection of cafes ☕ with data on power sockets 🔌  avail
 - <a href="https://flask.palletsprojects.com/">Flask</a> for the Backend.  
 - <a href="https://palletsprojects.com/p/jinja/">Jinja2</a> for the Templating.
 
+
+
+Made by Zakarya Belamiri :wave: [Get in touch!](https://github.com/kakaa2993)
