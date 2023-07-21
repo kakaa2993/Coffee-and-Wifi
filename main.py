@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired, URL
 import csv
 
 app = Flask(__name__)
-app.secret_key = "8BYkEfBA6O6donzWlSihBXox7C0sKR6b"
+app.secret_key = "8BYkEfBA6O6donzWlSihBXox7C0sKR6b"  # put your secret key here
 Bootstrap(app=app)
 
 
