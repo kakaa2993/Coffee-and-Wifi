@@ -21,4 +21,4 @@ This website is a collection of cafes ☕ with data on power sockets 🔌  avail
 
 
 
-Made by Zakarya Belamiri :wave: [Get in touch!](https://github.com/kakaa2993)
+Made by Belamiri Zakarya  :wave: [Get in touch!](https://github.com/kakaa2993)
