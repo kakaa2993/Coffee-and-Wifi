@@ -51,7 +51,7 @@ def add_data_to_database(detail) -> None:
 
 @app.route("/add", methods=['POST', 'GET'])
 def add():
-    order_form = Form()
+    order_form: FlaskForm = Form()
     if order_form.validate_on_submit():
         data: List[str | None] = [f"\n{order_form.cafe_name.data}", order_form.location.data, order_form.open.data, order_form.close.data, order_form.coffee_rating.data, order_form.wifi_rating.data, order_form.power_sockets.data]
         add_data_to_database(data)
