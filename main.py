@@ -6,6 +6,7 @@ from wtforms.validators import DataRequired, URL
 import csv
 from typing import List
 
+# API config
 app: Flask = Flask(__name__)
 app.secret_key = "8BYkEfBA6O6donzWlSihBXox7C0sKR6b"  # put your secret key here
 Bootstrap(app=app)
@@ -29,6 +30,7 @@ class Form(FlaskForm):
     submit: SubmitField = SubmitField(label="Submit")
 
 
+# The routes
 @app.route("/")
 def home() -> str:
     return render_template("index.html")
