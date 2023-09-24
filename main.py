@@ -62,4 +62,5 @@ def add() -> str | Response:
 
 
 if __name__ == "__main__":
+     # Only for debugging while developing
     app.run(debug=True, host="localhost", port=5000)
