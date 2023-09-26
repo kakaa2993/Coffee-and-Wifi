@@ -25,6 +25,8 @@ The most popular: ``gunicorn``( run on Linux only!!!)
 
 To run the website:
 ``gunicorn main:app``
+
+
 note: You must be in the same directory of the ``main.py`` file to run the previous command.
 
 
