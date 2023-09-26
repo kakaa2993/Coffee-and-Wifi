@@ -19,6 +19,15 @@ This website is a collection of cafes ☕ with data on power sockets 🔌  avail
 - <a href="https://flask.palletsprojects.com/">Flask</a> for the Backend.  
 - <a href="https://palletsprojects.com/p/jinja/">Jinja2</a> for the Templating.
 
+## Run the website:
+Normal web servers can't run Python applications, so a special type of the server was used(Web Server Gateway Interfase 'WSGI') to run python applications.
+The most popular: ``gunicorn``( run on Linux only!!!)
+
+To run the website:
+``gunicorn main:app``
+note: You must be in the same directory of the ``main.py`` file to run the previous command.
+
+
 
 
 Made by Belamiri Zakarya  :wave: [Get in touch!](https://github.com/kakaa2993)
