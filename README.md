@@ -24,7 +24,9 @@ Normal web servers can't run Python applications, so a special type of the serve
 The most popular: ``gunicorn``( run on Linux only!!!)
 
 To run the website:
-1- install the requirements by ``pip install requirements.txt``.
+
+1 - install the requirements by ``pip install requirements.txt``.
+
 2 - run ``gunicorn main:app``.
 
 
