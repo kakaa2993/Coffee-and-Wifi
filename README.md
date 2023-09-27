@@ -20,17 +20,20 @@ This website is a collection of cafes ☕ with data on power sockets 🔌  avail
 - <a href="https://palletsprojects.com/p/jinja/">Jinja2</a> for the Templating.
 
 ## Run the website:
-Normal web servers can't run Python applications, so a special type of the server was used(Web Server Gateway Interfase 'WSGI') to run python applications.
-The most popular: ``gunicorn``( run on Linux only!!!)
+Regular web servers can't run Python applications, so a special type of server was used(Web Server Gateway Interface 'WSGI') to run Python applications.
 
-To run the website:
+The most popular: <a href="http://www.gunicorn.org/">gunicorn</a> ( run on Linux only!!!)
+
+### To run the website:
 
 1 - install the requirements by ``pip install requirements.txt``.
 
 2 - run ``gunicorn main:app``.
 
 
-note: You must be in the same directory of the ``main.py`` file to run the previous command.
+
+
+Note: You must be in the same directory of the ``main.py`` file to run the previous command.
 
 
 
