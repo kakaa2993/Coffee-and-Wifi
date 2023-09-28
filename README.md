@@ -24,7 +24,7 @@ This website is a collection of cafes ☕ with data on power sockets 🔌  avail
 <br>
 
 ## Run the website:
-Regular web servers can't run Python applications, so a special type of server was used(Web Server Gateway Interface 'WSGI') to run Python applications.
+Regular web servers can't run Python applications, so a special server type was used(Web Server Gateway Interface 'WSGI') to run Python applications.
 The most popular: <a href="http://www.gunicorn.org/">gunicorn</a> ( run on Linux only!!!)
 
 <br>
