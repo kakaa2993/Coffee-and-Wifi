@@ -42,7 +42,7 @@ gunicorn main:app
 
 <br>
 
-**Note: You must be in the same directory of the ``main.py`` file to run the previous command.**
+> - **Note: You must be in the same directory of the `main.py` file to run the previous command.**
 
 
 <br>
