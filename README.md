@@ -44,7 +44,6 @@ gunicorn main:app
 
 > - **Note: You must be in the same directory of the `main.py` file to run the previous command.**
 
-
 <br>
 
 Made by Belamiri Zakarya  :wave: [Get in touch!](https://github.com/kakaa2993)
