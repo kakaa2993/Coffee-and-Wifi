@@ -14,7 +14,7 @@ This website is a collection of cafes ☕ with data on power sockets 🔌  avail
 
 <br>
 
-## The technologies Used:
+## The Technologies Used:
 - <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML5</a> & <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS3</a> for the structure and the styling.  
 - <a href="https://getbootstrap.com/">Bootstrap 5</a> for the UI.  
 - <a href="https://docs.python.org/3/library/csv.html">CSV</a> for the Database.  
@@ -23,13 +23,13 @@ This website is a collection of cafes ☕ with data on power sockets 🔌  avail
 
 <br>
 
-## Run the website:
+## Run The Website:
 Regular web servers can't run Python applications, so a special server type was used(Web Server Gateway Interface 'WSGI') to run Python applications.
 The most popular: <a href="http://www.gunicorn.org/">gunicorn</a> ( run on Linux only!!!)
 
 <br>
 
-**To run the website:**
+**To Run The Website:**
 
 * 1 - install the requirements by
 ```
